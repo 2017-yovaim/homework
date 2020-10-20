@@ -186,23 +186,5 @@ public class Date {
 	public void secondsPlus1() {
 		seconds++;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
