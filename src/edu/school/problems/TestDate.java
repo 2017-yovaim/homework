@@ -37,6 +37,7 @@ public class TestDate {
 		Date[] arr = new Date[n];
 		
 		for(int i = 0; i < arr.length; i++) {
+			arr[i] = new Date();
 			System.out.println("Enter the seconds of your date.");
 			arr[i].setSeconds(input.nextInt());
 			System.out.println("Enter the minutes. of your date.");

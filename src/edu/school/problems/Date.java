@@ -20,11 +20,11 @@ public class Date {
 	}
 
 	public Date(int secondsValue, int minutesValue, int hourValue, int dayValue, int monthValue, int yearValue) {
-		if (secondsValue <= 60 && secondsValue >= 0)
+		if (secondsValue < 60 && secondsValue >= 0)
 			seconds = secondsValue;
-		if (minutesValue <= 60 && minutesValue >= 0)
+		if (minutesValue < 60 && minutesValue >= 0)
 			minutes = minutesValue;
-		if (hourValue <= 24 && hourValue >= 0)
+		if (hourValue < 24 && hourValue >= 0)
 			hour = hourValue;
 		if (dayValue <= 31 && dayValue >= 1)
 			day = dayValue;
@@ -36,17 +36,17 @@ public class Date {
 	}
 
 	public void setSeconds(int secs) {
-		if (secs <= 60 && secs >= 0)
+		if (secs < 60 && secs >= 0)
 			seconds = secs;
 	}
 
 	public void setMinutes(int mins) {
-		if (mins <= 60 && mins >= 0)
+		if (mins < 60 && mins >= 0)
 			minutes = mins;
 	}
 
 	public void setHour(int h) {
-		if (h <= 24 && h >= 0)
+		if (h < 24 && h >= 0)
 			hour = h;
 	}
 
@@ -184,7 +184,38 @@ public class Date {
 		}
 	
 	public void secondsPlus1() {
-		seconds++;
+		if(seconds < 59)
+			seconds++;
+		else if(minutes < 59) {
+			seconds = 0;
+			minutes++;
+		}
+		else if(hour < 23) {
+			seconds = 0;
+			minutes = 0;
+			hour++;
+		}
+		else if((month == 2 && day < 28) || ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day < 31) || ((month == 2 || month == 4 || month == 6 || month == 9 || month == 11) && day < 30)){
+			seconds = 0;
+			minutes = 0;
+			hour = 0;
+			day++;
+		}
+		else if(month < 12) {
+			seconds = 0;
+			minutes = 0;
+			hour = 0;
+			day = 1;
+			month++;
+		}
+		else {
+			seconds = 0;
+			minutes = 0;
+			hour = 0;
+			day = 1;
+			month = 1;
+			year++;
+		}
 	}
 
 }
