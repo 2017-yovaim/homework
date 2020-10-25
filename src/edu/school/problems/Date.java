@@ -26,13 +26,29 @@ public class Date {
 			minutes = minutesValue;
 		if (hourValue < 24 && hourValue >= 0)
 			hour = hourValue;
-		if (dayValue <= 31 && dayValue >= 1)
-			day = dayValue;
 		if (monthValue <= 12 && monthValue >= 1)
 			month = monthValue;
+		if (monthValue == 2) {
+			if (isLeapYear()) {
+				if (dayValue >= 1 && dayValue <= 29) {
+					day = dayValue;
+				}
+			} else if (dayValue >= 1 && dayValue <= 28) {
+				day = dayValue;
+			}
+
+		} else if (monthValue == 1 || monthValue == 3 || monthValue == 5 || monthValue == 7 || monthValue == 8 || monthValue == 10 || monthValue == 12) {
+			if (dayValue >= 1 && dayValue <= 31) {
+				day = dayValue;
+			}
+		} else if (dayValue >= 1 && dayValue <= 30) {
+				day = dayValue;
+			}
+		
+		
 		year = yearValue;
 
-		// for standard use; doesn't have proper day data validation
+		// for standard use
 	}
 
 	public void setSeconds(int secs) {
