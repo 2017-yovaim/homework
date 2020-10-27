@@ -122,6 +122,7 @@ public class Date {
 	
 	public String toString() {
 		String result = hour + ":" + minutes + ":" + seconds + ", " + day + "." + month + "." + year;
+		result += "\nDay of the week: " + getDayOfTheWeek();
 		return(result);
 	}
 
@@ -232,6 +233,17 @@ public class Date {
 			month = 1;
 			year++;
 		}
+	}
+	
+	public DayOfWeek getDayOfTheWeek() {
+		Date temp = this;
+		int[] t = {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4};
+		if(temp.month < 3) {
+			temp.year--;
+		}
+		int result1 = (temp.year + temp.year / 4 - temp.year / 100 + temp.year / 400 + t[temp.month - 1] + temp.day) % 7;
+		DayOfWeek result = getDayOfWeek(result1);
+		return(result);
 	}
 
 }
