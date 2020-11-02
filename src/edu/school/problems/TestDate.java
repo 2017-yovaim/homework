@@ -61,6 +61,8 @@ public class TestDate {
 		}
 		
 		
+		
+		
 		input.close();
 
 	}
@@ -78,22 +80,6 @@ public class TestDate {
 		}
 	}
 	
-	public static DayOfWeek getDayOfWeek(int v) {
-		if(v == 1)
-			return DayOfWeek.MONDAY;
-		else if(v == 2)
-			return DayOfWeek.TUESDAY;
-		else if(v == 3)
-			return DayOfWeek.WEDNESDAY;
-		else if(v == 4)
-			return DayOfWeek.THURSDAY;
-		else if(v == 5)
-			return DayOfWeek.FRIDAY;
-		else if(v == 6)
-			return DayOfWeek.SATURDAY;
-		else if (v == 0) 
-			return DayOfWeek.SUNDAY;
-		return null;
-	}
+
 
 }

@@ -20,8 +20,7 @@ public class Event {
 	}
 
 	public String toString() {
-		String result = "What's the event: " + name;
-		result += "\nWhen: " + date;
+		String result = date.getDay() + "." + date.getMonth() + "." + date.getYear() + ", " + date.getHour() + ":" + date.getMinutes() + " - " + name;
 		return (result);
 	}
 }
