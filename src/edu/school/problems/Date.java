@@ -125,6 +125,11 @@ public class Date {
 		result += "\nDay of the week: " + dayOfWeek();
 		return(result);
 	}
+	
+	public String toStringEvent() {
+		String result = day + "." + month + "." + year + ", " + hour + ":" + minutes + " - ";
+		return result;
+	}
 
 	public boolean isLeapYear() {
 		if (year % 100 == 0)
@@ -244,6 +249,14 @@ public class Date {
 		int result1 = (temp.year + temp.year / 4 - temp.year / 100 + temp.year / 400 + t[temp.month - 1] + temp.day) % 7;
 		DayOfWeek result = DayOfWeek.getDayOfWeek(result1);
 		return(result);
+	}
+	
+	public boolean isSameDate(Date d) {
+		boolean isSameDate = false;
+		if((this.year == d.year) && (this.month == d.month) && (this.day == d.day))
+			isSameDate = true;
+		
+		return isSameDate;
 	}
 	
 

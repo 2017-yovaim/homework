@@ -20,7 +20,7 @@ public class Event {
 	}
 
 	public String toString() {
-		String result = date.getDay() + "." + date.getMonth() + "." + date.getYear() + ", " + date.getHour() + ":" + date.getMinutes() + " - " + name;
+		String result = date.toStringEvent() + name;
 		return (result);
 	}
 }

@@ -12,7 +12,7 @@ public class Reminder {
 	}
 
 	public void addEvent(Event newEvent) {
-		if (eventsIndex == 29) {
+		if (eventsIndex == 30) {
 			System.out.println("Your reminder is full.");
 		} else {
 			events[eventsIndex] = newEvent;
@@ -24,20 +24,11 @@ public class Reminder {
 
 	public Event[] getAllEvents(Date date) {
 		Event[] eventsOnCurrentDate = new Event[30];
-		int dayToCompare = date.getDay();
-		int monthToCompare = date.getMonth();
-		int yearToCompare = date.getYear();
-		int currentDay;
-		int currentMonth;
-		int currentYear;
 		Date currentDate;
-
 		for (int i = 0; i < eventsOnCurrentDate.length; i++) {
 			currentDate = events[i].getDate();
-			currentDay = currentDate.getDay();
-			currentMonth = currentDate.getMonth();
-			currentYear = currentDate.getYear();
-			if ((dayToCompare == currentDay) && (monthToCompare == currentMonth) && (yearToCompare == currentYear)) {
+			
+			if(date.isSameDate(currentDate) == true) {
 				eventsOnCurrentDate[i] = events[i];
 			}
 		}
