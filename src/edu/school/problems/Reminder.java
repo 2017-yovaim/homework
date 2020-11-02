@@ -26,6 +26,7 @@ public class Reminder {
 		Event[] eventsOnCurrentDate = new Event[30];
 		Date currentDate;
 		for (int i = 0; i < eventsOnCurrentDate.length; i++) {
+			eventsOnCurrentDate[i] = new Event();
 			currentDate = events[i].getDate();
 			
 			if(date.isSameDate(currentDate) == true) {
